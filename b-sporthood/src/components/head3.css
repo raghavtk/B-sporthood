@@ -1,0 +1,67 @@
+.main{
+   
+    background-color: rgb(58, 58, 58);
+}
+
+.styled{
+    padding-top: 6%;
+    padding-left: 7%;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4rem;
+    padding-bottom: 45px;
+}
+
+
+.list{
+    display: flex;
+}
+
+
+.list1{
+    padding-top: 2%;
+    padding-left: 7%;
+    
+}
+
+.logowithname{
+    padding-top: 4%;
+    padding-left: 40%;
+    padding-right: 30px;
+    left: 30%;
+    height: 200px;
+}
+
+@media screen and (max-width: 960px) {
+
+    .logowithname{
+        padding-top:4%;
+        height: 70px;
+    }
+}
+
+.names1{
+    color: blanchedalmond;
+    font-size: 1.2rem;
+    padding-bottom: 25px;
+}
+
+
+
+.lastline{
+
+    padding-left: 65%;
+    padding-top:50px;
+    padding-bottom:40px ;
+    color: rgb(163, 156, 145);
+    font-weight: 400;
+    font-size: 1.3rem;
+
+}
+
+.lastline1{
+   
+   
+    color: rgb(163, 156, 145);
+    
+}
+
