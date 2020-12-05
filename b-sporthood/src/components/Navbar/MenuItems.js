@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
         title: 'Home',
-        url: '#',
+        url: '/',
         cName: 'nav-links'
     },
     {
@@ -11,13 +11,13 @@ export const MenuItems = [
     },
     {
         title: 'About',
-        url: '#',
+        url: '#/about',
         cName: 'nav-links'
     },
     
     {
         title: 'Signup',
-        url: '#',
+        url: '#/signup',
         cName: 'nav-links-mobile'
     }
 

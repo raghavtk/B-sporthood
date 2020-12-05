@@ -1,0 +1,15 @@
+.body {
+    background-color: "#fffdd0 ";
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2.5%;
+}
+
+.title {
+    padding-left: 4%;
+    padding-top: 2%;
+}
+
+.para {
+    line-height: 200%;
+}

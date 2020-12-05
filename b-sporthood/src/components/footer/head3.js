@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
+import {Link} from "react-router-dom"
 import './head3.css'
-import img from "./B-sPort1.jpg"
+import img from "../B-sPort1.jpg"
 class Head3 extends Component {
     
 
@@ -15,7 +15,7 @@ class Head3 extends Component {
                    <div className="list">
 
                 <ul className="list1">
-                    <p className="names1">About Us</p>
+                    <Link to ="/about"><p className="names1">About Us</p></Link>
                     <p className="names1">Terms & Conditions</p>
                     <p className="names1">Privacy</p>
                 </ul>
