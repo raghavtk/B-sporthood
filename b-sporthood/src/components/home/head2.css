@@ -15,7 +15,7 @@
 
 .icons{
     justify-content: center;
-    padding-left: 20%;
+    padding-left: 18%;
     padding-right: 20%;
     padding-top: 4%;
     display: flex;
@@ -34,6 +34,7 @@
 
 }
 
+
 .headings1{
    
    
@@ -46,7 +47,7 @@
 
 .headings2{
    
-    padding-left: 19%;
+    padding-left: 23%;
     padding-top: 1%;
     font-weight: 600;
     font-size: 1.4rem;

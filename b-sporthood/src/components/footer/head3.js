@@ -16,8 +16,9 @@ class Head3 extends Component {
 
                 <ul className="list1">
                     <Link to ="/about"><p className="names1">About Us</p></Link>
-                    <p className="names1">Terms & Conditions</p>
-                    <p className="names1">Privacy</p>
+                    <Link to ="/terms"><p className="names1">Terms & Conditions</p></Link>
+                    <Link to ="/terms"><p className="names1">Privacy</p></Link>
+                   
                 </ul>
                                                                
                 <img  className="logowithname" src={img} alt="logo"></img>

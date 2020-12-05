@@ -38,7 +38,7 @@ class Head2 extends Component {
                <div >
                < ul className="headings" >
                <h7  className="headings1" >PRIORITY  SERVICE</h7>
-               <h7  className="headings2">WE CARE!!!</h7>
+               <h7  className="headings2">WE DO CARE!!!</h7>
                <h7  className="headings3">LOWEST PRICES</h7>
                </ ul>
                     </div>              

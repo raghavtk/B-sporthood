@@ -5,6 +5,7 @@ import SignUpForm from '../components/signup';
 import LoginPage from '../components/login/LoginPage';
 import About from '../components/about'
 import Home from '../components/home/home'
+import Terms from '../components/terms/terms_and_cond';
 
 const Routes = () => {
 
@@ -15,6 +16,7 @@ const Routes = () => {
                 <Route path="/signup" component={SignUpForm}/>
                 <Route path="/login" component={LoginPage}/>
                 <Route path="/about" component={About}/>
+                <Route path="/terms" component={Terms}/>
                 <Route path="/" component={Home}/>
                 
                 

@@ -5,6 +5,7 @@
 }
 
 .styled{
+    color: rgb(153, 234, 245);
     padding-top: 3%;
     padding-left: 7%;
     font-family: Impact, Charcoal, sans-serif;
@@ -25,7 +26,7 @@
 }
 
 .logowithname{
-    padding-top: 4%;
+    padding-top: 9%;
     padding-left: 40%;
     padding-right: 30px;
     left: 30%;
@@ -51,8 +52,8 @@
 .lastline{
 
     padding-left: 65%;
-    padding-top:50px;
-    padding-bottom:40px ;
+    padding-top:30px;
+    
     color: rgb(163, 156, 145);
     font-weight: 400;
     font-size: 1.3rem;

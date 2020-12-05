@@ -1,12 +1,11 @@
 .NavbarItems {
-   background-image:url("../BADMINTON1.jpg") ; 
-   background-repeat: no-repeat;
-   background-size: cover;
-    height: 100px;
+  background-color: #38383b;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .navbar-logo {
@@ -136,6 +135,7 @@
 
     Button {
         display: none;
+        color: wheat;
     }
 }
 
