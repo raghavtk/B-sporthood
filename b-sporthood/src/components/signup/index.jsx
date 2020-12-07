@@ -147,9 +147,9 @@ import {
         const data = {
           
           user: {
-            firstName: 'suhas',
-            lastName: 'pai',
-            email: 'suhas@gmail.com',
+            firstName: 'raghav',
+            lastName: 'tkesari',
+            email: 'raghav@gmail.com',
             password: 'abc123',
             profilePicUrl: 'dfsd',
             username: 'Sp757',
