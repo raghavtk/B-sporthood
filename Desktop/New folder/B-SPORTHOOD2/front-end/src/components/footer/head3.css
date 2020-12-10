@@ -1,0 +1,73 @@
+.main{
+   
+    background-color: rgb(5,17,23);
+    height:550px
+}
+
+.styled{
+    color: rgb(153, 234, 245);
+    padding-left: 7%;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4rem;
+    
+}
+
+
+.list{
+    display: flex;
+}
+
+
+.list1{
+    padding-top: 2%;
+    padding-left: 7%;
+    
+}
+
+.logowithname{
+    /* display: flex;
+    justify-content: center; */
+    width: 20%;
+    height: 20%;
+    
+}
+/* 
+@media screen and (max-width: 960px) {
+
+    .logowithname{
+        width: 20%;
+        height: 20%;
+    }
+} */
+
+.names1{
+    color: blanchedalmond;
+    font-size: 1.2rem;
+    padding-bottom: 25px;
+}
+
+
+
+.lastline{
+
+    
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(163, 156, 145);
+    font-weight: 400;
+    font-size: 1.3rem;
+
+}
+
+.lastline1{
+   
+   
+    color: rgb(163, 156, 145);
+    
+}
+
