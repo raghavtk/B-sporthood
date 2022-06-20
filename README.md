@@ -1,4 +1,4 @@
-# B-sporthood
+# B-sporthood: Web Technologies Project
 
 # Summary:
 
