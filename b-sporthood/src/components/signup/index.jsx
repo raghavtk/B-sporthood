@@ -4,12 +4,7 @@ import {
     Card,
     createStyles,
     makeStyles,
-    Theme,
     Typography,
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
     TextField,
   } from '@material-ui/core';
   import React from 'react';
@@ -87,7 +82,6 @@ import {
     }),
   );
   
-  // Change props to userFormProps
   const SignUpForm = (props) => {
     const classes = useStyles(props);
     const [labelE, setLableE] = React.useState('');
@@ -97,12 +91,9 @@ import {
     const [firstName, setFirstName] = React.useState('');
     const [lastName, setLastName] = React.useState('');
     const [userName, setUserName] = React.useState('');
-    const [profilePicUrl, setProfilePicUrl] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [passwordConfirm, setPasswordConfirm] = React.useState('');
-    const [name, setName] = React.useState('');
-    const [isLoginSuccess, setIsLoginSuccess] = React.useState(false);
     const userFormList = ['FirstName', 'LastName', 'UserName'];
     const userFormHooks = [setFirstName, setLastName, setUserName];
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
@@ -125,7 +116,7 @@ import {
       }
     };
     const emailver = (emailId) => {
-      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (re.test(emailId)) {
         setErrorE(false);
         setLableE('');
@@ -145,17 +136,18 @@ import {
         alert("Password does'nt match ");
       } else {
         const data = {
-          
           user: {
-            firstName: 'raghav',
-            lastName: 'tkesari',
-            email: 'raghav@gmail.com',
-            password: 'abc123',
-            profilePicUrl: 'dfsd',
-            username: 'Sp757',
+            firstName,
+            lastName,
+            email,
+            password,
+            username: userName,
           },
         };
-        
+
+        localStorage.setItem('bSporthoodUser', JSON.stringify(data.user));
+        alert('Signup successful! Please login with your new credentials.');
+        window.location.hash = '#/login';
       }
     };
   
@@ -172,9 +164,9 @@ import {
             User Details
           </Typography>
           {userFormList.map((ele, index) => {
-            const func = `set${ele}`;
             return (
               <TextField
+                key={index}
                 type="text"
                 placeholder={ele}
                 onChange={(e)=> {
@@ -237,4 +229,3 @@ import {
     );
   };
   export default SignUpForm;
-  

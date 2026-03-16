@@ -1,7 +1,6 @@
 .main{
-   
     background-color: rgb(5,17,23);
-    height:550px
+    padding-bottom: 30px;
 }
 
 .styled{
@@ -10,31 +9,27 @@
     padding-left: 7%;
     font-family: Impact, Charcoal, sans-serif;
     font-size: 4rem;
-    padding-bottom: 45px;
+    padding-bottom: 25px;
 }
-
 
 .list{
     display: flex;
 }
 
-
 .list1{
     padding-top: 2%;
     padding-left: 7%;
-    
 }
 
 .logowithname{
-    padding-top: 9%;
+    padding-top: 3%;
     padding-left: 40%;
     padding-right: 30px;
     left: 30%;
-    height: 200px;
+    height: 120px;
 }
 
 @media screen and (max-width: 960px) {
-
     .logowithname{
         padding-top:4%;
         height: 70px;
@@ -47,23 +42,14 @@
     padding-bottom: 25px;
 }
 
-
-
 .lastline{
-
     padding-left: 65%;
     padding-top:30px;
-    
     color: rgb(163, 156, 145);
     font-weight: 400;
     font-size: 1.3rem;
-
 }
 
 .lastline1{
-   
-   
     color: rgb(163, 156, 145);
-    
 }
-

@@ -1,10 +1,28 @@
 .LoginPage {
     background-color: rgb(152, 230, 255);
-    /*background-image: url('/img/background.jpg');*/
     min-height: 100%;
     min-height: 100vh;
     display: flex;
     background-size: cover;
     align-items: center;
     justify-content: center;
+}
+
+.LoginForm button[type="submit"] {
+    background: #3acbf7;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s ease-out;
+}
+
+.LoginForm button[type="submit"]:hover {
+    background: #fff;
+    color: #6568F4;
 }

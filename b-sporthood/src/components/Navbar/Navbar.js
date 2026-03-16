@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems"
 import { Button } from "../Button"
+import { Link } from 'react-router-dom';
 import './Navbar.css'
 import img from "../B-sPort1.jpg"
-
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -14,12 +14,10 @@ class Navbar extends Component {
 
     render() {
         return(
-
             <div>
-                 
             <nav className="NavbarItems">
                <div className="spacer"></div>
-                <img  className="spacer" src={img} alt="logo"></img>
+                <img className="spacer" src={img} alt="logo"></img>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
@@ -27,18 +25,17 @@ class Navbar extends Component {
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                                <Link className={item.cName} to={item.url}>
                                 {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
                 </ul>
-                <Button>Sign Up!!</Button>
+                <Button to="/signup">Sign Up!!</Button>
             </nav>
             </div>
         )
     }
 }
-
-export default Navbar
+export default Navbar;
