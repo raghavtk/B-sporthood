@@ -1,11 +1,17 @@
 .NavbarItems {
-  background-color: #38383b;
+  background-color: rgb(5,17,23);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.NavbarItems img.spacer {
+    height: 55px;
 }
 
 .navbar-logo {
@@ -21,26 +27,39 @@
 }
 
 .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
+    display: flex;
     list-style: none;
     text-align: center;
-    width: 70vw;
-    justify-content: end;
-    margin-right: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-text {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .nav-links {
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     padding: 0.5rem 1rem;
+    margin: 0 5px;
 }
 
 .nav-links:hover {
     background-color: #0b0b0c;
     border-radius: 4px;
     transition: all 0.2s ease-out;
+    text-decoration: none !important;
+    color: #fff !important;
 }
 
 .fa-bars {
@@ -73,7 +92,7 @@
     }
 
     .nav-menu.active {
-        background: rgb(56, 54, 54);
+        background: rgb(5,17,23);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -121,27 +140,34 @@
         margin: 2rem auto;
         border-radius: 4px;
         width: 80%;
-        background: #caedf0;
+        background: #3acbf7;
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
     }
 
-    .nav-links-mobile:hover {
+    .nav-links:hover {
         background: #fff;
         color: #000000;
         transition: 250ms;
     }
 
-    Button {
+    .nav-actions {
         display: none;
-        color: wheat;
     }
 }
 
 .spacer{
     padding-left: 20px;
 }
-.NavbarItems img.spacer {
-    height: 55px;
+
+/* Fix for Navbar Buttons Text Color */
+.nav-actions .nav-btn,
+.nav-actions a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-actions .nav-btn:hover {
+    color: #6568F4;
 }

@@ -9,10 +9,16 @@ import "react-slideshow-image/dist/styles.css";
 import "./slides.css";
 
 const slideImages = [image1, image3, image2, image4, image5];
+
+const properties = {
+  prevArrow: <div style={{width: "50px", height: "50px", borderRadius: "50%", background: "rgba(0,0,0,0.4)", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", color:"#fff", fontSize:"20px", marginLeft:"20px", border: "2px solid rgba(255,255,255,0.2)", transition: "all 0.3s ease"}}><i className="fas fa-chevron-left"></i></div>,
+  nextArrow: <div style={{width: "50px", height: "50px", borderRadius: "50%", background: "rgba(0,0,0,0.4)", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", color:"#fff", fontSize:"20px", marginRight:"20px", border: "2px solid rgba(255,255,255,0.2)", transition: "all 0.3s ease"}}><i className="fas fa-chevron-right"></i></div>
+}
+
 function Slideshow() {
   return (
     <div>
-      <Slide easing="ease">
+      <Slide easing="ease" {...properties}>
         <div className="each-slide">
           <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
         </div>

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -12,7 +13,7 @@ require('./models/users')
 app.use(express.json())
 app.use(require('./routes/auth'))
 
-mongoose.connect('mongodb://localhost:27017/badmintion', { useNewUrlParser: true,useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/badmintion', { useNewUrlParser: true,useUnifiedTopology: true });
 // mongoose.connect('mongodb://localhost:27017/details', {useNewUrlParser: true});
 // const detailSchema = new mongoose.Schema({
 //     title: String,

@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from "react";
 import {UserNameIdContext} from '../UserNameId/UserNameIdContext';
-import Nbar from '../Nbar/Nbar';
+import Navbar from '../Navbar/Navbar';
 import Profile_card from './Profile_card';
 import axios from 'axios';
 import { Card, Jumbotron } from "react-bootstrap";
@@ -42,7 +42,7 @@ function Profile()
     
     return (      
         <>
-        <Nbar name={username}/> 
+        <Navbar name={username}/> 
         <Jumbotron style={{margin:"0px"}}>
         <Card bg="primary" text="light" className="text-center" style={{fontSize:"30px", textAlign: "auto"}}>
         <Card.Header>Courts Booked</Card.Header>  

@@ -4,8 +4,9 @@ import Cards from './Cards'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Jumbotron, Row } from 'react-bootstrap';
 import "./Deck.css";
-import Nbar from "../Nbar/Nbar.jsx";
+import Navbar from "../Navbar/Navbar";
 import Foot from "../footer/head3.js";
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core';
 
 import {UserNameIdContext} from '../UserNameId/UserNameIdContext';
 import axios from 'axios';
@@ -24,36 +25,60 @@ function createCard(detail) {
     );
 }
 
-function Deck()
+export default function Deck()
 {
     const history = useHistory();
     const [username, setNameid] = useContext(UserNameIdContext);
-    if(username === '')
-    {
-      history.push('/');
-    }
     const [details, setDetails] = useState([]);
+    const [dialogOpen, setDialogOpen] = useState(false);
+
     useEffect(()=>{
+      if(username === '') {
+        setDialogOpen(true);
+        return;
+      }
       axios.get('http://localhost:5000/details')
       .then(res => {
           const det = res.data;
           setDetails(det);
+      })
+      .catch(err => {
+          console.error("Failed to fetch details:", err);
       });
-    }, []);
-    
+    }, [username]);
+
+    const handleClose = () => {
+        setDialogOpen(false);
+        history.push('/');
+    };
+
     return (
       <div>
-        <Nbar name={username}/>
+        <Navbar name={username}/>
+
+        <Dialog open={dialogOpen} onClose={handleClose} aria-labelledby="auth-dialog-title">
+          <DialogTitle id="auth-dialog-title">Authentication Required</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              You need to login or sign up before you can view available courts and book them!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => history.push('/login')} color="primary">
+              Login
+            </Button>
+            <Button onClick={() => history.push('/signup')} color="primary" variant="contained">
+              Sign Up
+            </Button>
+          </DialogActions>
+        </Dialog>
+
         <Jumbotron className="jumbo">
             <Row>
-            {details.map(createCard)} 
+            {details && details.map(createCard)} 
             </Row>
         </Jumbotron>
         <Foot/>
       </div>
-
     );
-  
-    
 }
-export default Deck;

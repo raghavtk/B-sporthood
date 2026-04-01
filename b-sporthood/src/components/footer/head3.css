@@ -1,55 +1,71 @@
-.main{
+.main {
     background-color: rgb(5,17,23);
-    padding-bottom: 30px;
-}
-
-.styled{
-    color: rgb(153, 234, 245);
-    padding-top: 3%;
-    padding-left: 7%;
-    font-family: Impact, Charcoal, sans-serif;
-    font-size: 4rem;
-    padding-bottom: 25px;
-}
-
-.list{
+    padding: 30px 5%;
     display: flex;
+    flex-direction: column;
+    color: blanchedalmond;
 }
 
-.list1{
-    padding-top: 2%;
-    padding-left: 7%;
+.styled {
+    color: rgb(153, 234, 245);
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    padding-bottom: 20px;
+    font-weight: 700;
 }
 
-.logowithname{
-    padding-top: 3%;
-    padding-left: 40%;
-    padding-right: 30px;
-    left: 30%;
-    height: 120px;
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.list1 {
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.logowithname {
+    height: 100px;
+    object-fit: contain;
 }
 
 @media screen and (max-width: 960px) {
-    .logowithname{
-        padding-top:4%;
+    .logowithname {
+        margin-top: 20px;
         height: 70px;
+    }
+    .list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .list1 {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
-.names1{
+.names1 {
     color: blanchedalmond;
     font-size: 1.2rem;
-    padding-bottom: 25px;
+    margin-bottom: 0;
+    text-decoration: none;
 }
 
-.lastline{
-    padding-left: 65%;
-    padding-top:30px;
+.lastline {
+    text-align: center;
+    padding-top: 20px;
     color: rgb(163, 156, 145);
     font-weight: 400;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
-.lastline1{
+.lastline1 {
     color: rgb(163, 156, 145);
 }

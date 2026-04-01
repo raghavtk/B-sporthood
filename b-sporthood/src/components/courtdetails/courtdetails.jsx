@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import Nbar from "../Nbar/Nbar.jsx";
+import Navbar from "../Navbar/Navbar";
 import Foot from "../footer/head3.js";
 import Slideshow from '../slideshow/slidshow.jsx';
 import { Button, Card } from 'react-bootstrap';
@@ -18,20 +18,20 @@ function Courtdetails(props)
     {
         const time = new Date();
         console.log(username, courtname, time);
-        axios.post('http://localhost:5000/book', {username, courtname, time})
-          .then((res)=>{
-            console.log("the result data")
-            console.log(res.data);
-            console.log(location.state.amount);
-            const success = res.data.ok;
-            history.push({pathname:'/payment', state: {success, amount: location.state.amount}});
+        // We push to payment passing the selected data, without committing DB yet.
+        history.push({
+            pathname: '/payment', 
+            state: {
+                amount: location.state.amount, 
+                courtname: courtname, 
+                time: time
+            }
         });
-   
     }
 
     return (
       <div>
-      <Nbar name={username}/>
+      <Navbar name={username}/>
       <div>
       <Slideshow img1={location.state.img1} img2={location.state.img2}/>
       </div>

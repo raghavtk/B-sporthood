@@ -1,107 +1,96 @@
-.spacer1{
- 
-    padding-left: 47%;
-    padding-top: 2%;
+.maintag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 5%;
 }
 
-.name{
+.spacer1 {
+    display: block;
+    margin: 0 auto;
+    padding-top: 2%;
+    max-width: 100%;
+}
+
+.name {
     text-align: center;
     padding-top: 1.5%;
     font-size: 30px;
     font-weight: bolder;
-
 }
 
-
-.icons{
-    justify-content: center;
-    padding-left: 18%;
-    padding-right: 20%;
-    padding-top: 4%;
+.icons {
     display: flex;
+    justify-content: space-around;
+    padding: 4% 0 1% 0;
+    margin: 0;
+    width: 100%;
     font-size: 3rem;
-    grid-gap: 50%;
-   
+    list-style: none;
 }
 
-.headings{
-   
-    padding-left: 6%;
-   
-    padding-top: 1%;
+.headings {
     display: flex;
-    
-
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    padding-top: 1%;
 }
 
-
-.headings1{
-   
-   
-    padding-top: 1%;
+.headings1, .headings2, .headings3 {
+    flex: 1;
     font-weight: 600;
     font-size: 1.4rem;
-   
 }
 
-
-.headings2{
-   
-    padding-left: 23%;
-    padding-top: 1%;
-    font-weight: 600;
-    font-size: 1.4rem;
-  
+.cta-link {
+    color: #3acbf7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.cta-link:hover {
+    color: #1b8eb3;
+    text-decoration: none;
 }
 
-
-.headings3{
-    font-weight: 600;
-    padding-top: 1%;
-    padding-left: 22.5%;
-    font-size: 20px;
-    
-
-}
-
-
-.headings_1{
-   
-    padding-left: 5%;
-    padding-right: 2%;
-    padding-bottom: 5%;
+.headings_1 {
     display: flex;
-    
-
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 3%;
 }
 
-.headings11{
-   
-   
-    
+.headings11, .headings21, .headings31 {
+    flex: 1;
     font-weight: 100;
     padding-top: 1%;
-  
     font-size: 1.2rem;
-   
 }
 
-
-.headings21{
-   
-    padding-left: 13%;
-    padding-top: 1%;
-    font-weight: 100;
-    font-size: 1.2rem;
-  
+.cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
+.home-book-btn {
+    background-color: #3acbf7;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-.headings31{
-    padding-left: 13%;
-    padding-top: 1%;
-    font-weight: 100;
-    font-size: 1.2rem;
-  
-
+.home-book-btn:hover {
+    background-color: #1b8eb3;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
 }

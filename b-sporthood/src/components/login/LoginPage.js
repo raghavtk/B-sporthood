@@ -1,53 +1,54 @@
 import React, { Component } from 'react';
 import './LoginPage.css';
+import axios from 'axios';
+import { UserNameIdContext } from '../UserNameId/UserNameIdContext';
+import NavBar from '../Navbar/Navbar';
+import Head3 from '../footer/head3';
 
 const divStyle = {
   display: 'flex',
+  justifyContent: 'center',
   alignItems: 'center',
-  marginTop: -100,
+  minHeight: '100vh',
+   
+  padding: '5% 10%',
 };
 
 const buttonStyle = {
   marginBottom: 0,
+  marginTop: '15px'
 };
 
 class LoginForm extends Component {
+  static contextType = UserNameIdContext;
+
   state = {
-    email: '',
+    username: '',
     password: '',
   };
 
-  handleFormSubmit = (e) => {
+  handleFormSubmit = async (e) => {
     e.preventDefault();
-
-    const raw = localStorage.getItem('bSporthoodUser');
-    if (!raw) {
-      alert('No user found. Please sign up first.');
-      window.location.hash = '#/signup';
-      return;
-    }
-
     try {
-      const user = JSON.parse(raw);
-      const isMatch = user.email === this.state.email && user.password === this.state.password;
+      const res = await axios.post('http://localhost:5000/signin', {
+        Username: this.state.username,
+        password: this.state.password
+      });
 
-      if (!isMatch) {
-        alert('Invalid email or password.');
-        return;
+      if (res.data.token) {
+        localStorage.setItem('jwt', res.data.token);
+        
+        // Update context with the signed in username
+        const [, setUsername] = this.context;
+        if (setUsername) setUsername(this.state.username);
+
+        alert('Signed in successfully!');
+        window.location.hash = '#/';
+      } else {
+        alert('Invalid credentials.');
       }
-
-      localStorage.setItem('bSporthoodSession', JSON.stringify({
-        isLoggedIn: true,
-        email: user.email,
-        username: user.username,
-      }));
-
-      alert(`Welcome back, ${user.firstName || user.username}!`);
-      window.location.hash = '#/';
     } catch (err) {
-      alert('Stored user data is invalid. Please sign up again.');
-      localStorage.removeItem('bSporthoodUser');
-      window.location.hash = '#/signup';
+      alert(err.response?.data?.error || 'Invalid username or password.');
     }
   };
 
@@ -57,36 +58,46 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div style={divStyle}>
-          <form className="LoginForm" id="loginForm" onSubmit={this.handleFormSubmit}>
-          <h1>   SIGN IN   </h1>
-            <div>
-              <input
-                name="email"
-                type="email"
-                placeholder="Email Address"
-                value={this.state.email}
-                onChange={this.handleChange}
-                required
-              />
+      <>
+        <NavBar />
+        <div style={divStyle}>
+            <div className="login-card">
+              <form className="LoginForm" id="loginForm" onSubmit={this.handleFormSubmit}>
+              <h1>SIGN IN</h1>
+              <p className="login-subtitle">Welcome back! Please enter your details.</p>
+                <div>
+                  <input
+                    name="username"
+                    type="text"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div style={buttonStyle}>
+                  <button type="submit">
+                    Login
+                  </button>
+                </div>
+                <p style={{marginTop: "20px", textAlign: "center", color: "#666"}}>
+                   Don't have an account? <a href="#/signup" style={{color: "#3acbf7", fontWeight: "bold", textDecoration: "none"}}>Sign up</a>
+                </p>
+              </form>
             </div>
-            <div>
-              <input
-                name="password"
-                type="password"
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.handleChange}
-                required
-              />
-            </div>
-            <div style={buttonStyle}>
-              <button type="submit">
-                Login
-              </button>
-            </div>
-          </form>
-      </div>
+        </div>
+        <Head3 />
+      </>
     )
   }
 }

@@ -5,16 +5,18 @@ import Head3 from "./components//footer/head3"
 import './App.css';
 import Routes from './routes';
 import LoginPage from './components/login/LoginPage';
+import {UserNameIdProvider} from './components/UserNameId/UserNameIdContext';
 
 
 function App() {
   return (
-
-    <div className="App">
-      
-      <Routes />
-      
-    </div>
+    <UserNameIdProvider>
+      <div className="App">
+        
+        <Routes />
+        
+      </div>
+    </UserNameIdProvider>
   );
 }
 

@@ -3,3 +3,22 @@
     padding: 20px;
     margin: 30px;
 }
+/* Premium Card Hover Effect */
+.premium-card {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.premium-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Image scaling inside the card */
+.premium-card .card-img-top {
+    transition: transform 0.4s ease;
+}
+.premium-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+

@@ -14,25 +14,37 @@ import {
   const useStyles = makeStyles((theme) =>
     createStyles({
       root: {
-        backgroundColor: theme.palette.primary.light,
-        padding: '10%',
-        height: '80%',
+        backgroundColor: '#caedf0',
+        padding: '5% 10%',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       },
       card: {
         boxShadow: '-1px 2px 20px rgba(0, 0, 0, 0.15)',
         borderRadius: theme.spacing(1),
+        background: 'rgb(5,17,23)',
         padding: theme.spacing(5),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        width: '100%',
+        maxWidth: '500px',
       },
       button: {
-        background: `linear-gradient(90deg, ${theme.palette.primary.main} 0%, ${theme.palette.info.dark} 103.81%)`,
+        background: '#3acbf7',
         borderRadius: theme.spacing(0.5),
-        width: '20%',
+        width: '100%',
         height: theme.spacing(7),
-        marginBottom: theme.spacing(22),
-        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(4),
+        marginTop: theme.spacing(2),
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: '1.2rem',
+        '&:hover': {
+           background: '#1b8eb3',
+        }
       },
       imageContainer: {
         width: theme.spacing(7),
@@ -42,30 +54,43 @@ import {
       },
   
       title: {
-        fontFamily: 'BrandonTextWeb-Bold',
+        fontFamily: 'Poppins, sans-serif',
         fontSize: theme.spacing(4),
-        marginBottom: theme.spacing(7),
+        fontWeight: 'bold',
+        marginBottom: theme.spacing(2),
         marginTop: theme.spacing(3),
+        color: '#ffffff',
       },
       subtitle: {
-        color: theme.palette.text.secondary,
+        color: '#e2e8f0',
         marginBottom: theme.spacing(4),
         fontSize: theme.spacing(2),
+        textAlign: 'center',
       },
       input: {
         boxSizing: 'border-box',
         marginBottom: '20px',
-        width: '70%',
-        height: theme.spacing(7),
+        width: '100%',
+        minHeight: theme.spacing(7),
         outline: 'none',
         fontSize: theme.spacing(2),
-        fontFamily: 'BrandonTextWeb-Regular',
+        fontFamily: 'Poppins, sans-serif',
         paddingLeft: theme.spacing(3),
         paddingTop: '10px',
         paddingBottom: '10px',
-        letterSpacing: '0.04em',
-        color: theme.palette.text.primary,
+        color: '#ffffff',
+        background: 'rgba(255,255,255,0.05)',
+        border: '1px solid rgba(255,255,255,0.2)',
         borderRadius: '4px',
+        '& .MuiInputBase-input': {
+          color: '#ffffff',
+        },
+        '& .MuiInputLabel-root': {
+          color: '#e2e8f0',
+        },
+        '& .MuiOutlinedInput-notchedOutline': {
+          border: 'none',
+        }
       },
       footerText: {
         color: theme.palette.text.secondary,
@@ -94,7 +119,7 @@ import {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [passwordConfirm, setPasswordConfirm] = React.useState('');
-    const userFormList = ['FirstName', 'LastName', 'UserName'];
+    const userFormList = ['First Name', 'Last Name', 'Username'];
     const userFormHooks = [setFirstName, setLastName, setUserName];
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
     const mediumRegex = new RegExp(
@@ -135,19 +160,30 @@ import {
       } else if (password !== passwordConfirm) {
         alert("Password does'nt match ");
       } else {
-        const data = {
-          user: {
-            firstName,
-            lastName,
-            email,
-            password,
-            username: userName,
-          },
-        };
-
-        localStorage.setItem('bSporthoodUser', JSON.stringify(data.user));
-        alert('Signup successful! Please login with your new credentials.');
-        window.location.hash = '#/login';
+        try {
+          const response = await fetch('http://localhost:5000/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              Firstname: firstName,
+              Lastname: lastName,
+              Username: userName,
+              email: email,
+              password: password
+            })
+          });
+          const data = await response.json();
+          if (data === "success") {
+            alert('Signup successful! Please login with your new credentials.');
+            window.location.hash = '#/login';
+          } else if (data === "Uerror") {
+            alert('Username already exists. Please choose another.');
+          } else {
+            alert(data.error || 'Failed to sign up.');
+          }
+        } catch (err) {
+          alert('Error signing up. Please ensure the backend is running.');
+        }
       }
     };
   
@@ -159,9 +195,6 @@ import {
           </Typography>
           <Typography variant="h2" className={classes.subtitle}>
             Please fill this form to create a new account
-          </Typography>
-          <Typography variant="h2" className={classes.subtitle}>
-            User Details
           </Typography>
           {userFormList.map((ele, index) => {
             return (
@@ -184,7 +217,7 @@ import {
             error={errorE}
             name="email"
             type="email"
-            placeholder="email"
+            placeholder="Email"
             className={classes.input}
             onChange={(e) => {
               setEmail(e.target.value);

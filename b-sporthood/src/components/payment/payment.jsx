@@ -1,9 +1,9 @@
-import React, {ReactDOM} from "react";
+import React, {useContext} from "react";
 import { Button, Col, Form, Jumbotron, Card } from "react-bootstrap";
-import {Link, useLocation} from 'react-router-dom';
-import {useHistory} from 'react-router-dom';
+import {Link, useLocation, useHistory} from 'react-router-dom';
+import axios from 'axios';
 import {UserNameIdContext} from '../UserNameId/UserNameIdContext';
-import {useContext} from 'react';
+
 function Payment()
 {
     const location = useLocation();
@@ -14,10 +14,9 @@ function Payment()
     const cvv = React.createRef();
     const date = React.createRef();
     const [username, setNameid] = useContext(UserNameIdContext);
+    
     function pay()
     {
-        
-        //console.log(firstname.current.value);
         if(firstname.current.value === '' || lastname.current.value=== '' || cardnum.current.value === '' || cvv.current.value === '' || date.current.value === '')
         {
             alert("All entries must be filled");
@@ -48,15 +47,20 @@ function Payment()
         }
         else
         {
-            const success = location.state.success;
-            console.log(parseInt(date.current.value.slice(0, 2)));
-            history.push({pathname:'/result', state: {success}});
-        }
-        // console.log(lastname.current.value);
-        // console.log(cardnum.current.value);
-        // console.log(cvv.current.value);
-        // console.log(date.current.value);
-        
+            // Payment passes, now commit to database.
+            axios.post('http://localhost:5000/book', {
+                username: username, 
+                courtname: location.state.courtname, 
+                time: location.state.time
+            })
+            .then((res)=>{
+                const success = res.data.ok || 1;
+                history.push({pathname:'/result', state: {success}});
+            })
+            .catch((err) => {
+                alert("Booking failed to save properly. Contact support.");
+            });
+        }        
     }
     return(
         <div>
