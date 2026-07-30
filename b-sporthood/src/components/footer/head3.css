@@ -1,13 +1,14 @@
 .main {
-    background-color: rgb(5,17,23);
+    background-color: #f3f7f6;
     padding: 30px 5%;
     display: flex;
     flex-direction: column;
-    color: blanchedalmond;
+    color: #274060;
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .styled {
-    color: rgb(153, 234, 245);
+    color: #274060;
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     padding-bottom: 20px;
@@ -19,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(39, 64, 96, 0.1);
     padding-bottom: 20px;
 }
 
@@ -52,7 +53,7 @@
 }
 
 .names1 {
-    color: blanchedalmond;
+    color: #274060;
     font-size: 1.2rem;
     margin-bottom: 0;
     text-decoration: none;
@@ -61,11 +62,11 @@
 .lastline {
     text-align: center;
     padding-top: 20px;
-    color: rgb(163, 156, 145);
+    color: #274060;
     font-weight: 400;
     font-size: 1rem;
 }
 
 .lastline1 {
-    color: rgb(163, 156, 145);
+    color: #274060;
 }

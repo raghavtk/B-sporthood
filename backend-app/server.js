@@ -13,7 +13,16 @@ require('./models/users')
 app.use(express.json())
 app.use(require('./routes/auth'))
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/badmintion', { useNewUrlParser: true,useUnifiedTopology: true });
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/badmintion';
+
+mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('MongoDB connected');
+    })
+    .catch((err) => {
+        console.error('MongoDB connection failed. Server will stay up, but DB-backed routes may fail.');
+        console.error(err.message);
+    });
 // mongoose.connect('mongodb://localhost:27017/details', {useNewUrlParser: true});
 // const detailSchema = new mongoose.Schema({
 //     title: String,

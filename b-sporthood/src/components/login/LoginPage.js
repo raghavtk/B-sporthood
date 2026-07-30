@@ -63,7 +63,7 @@ class LoginForm extends Component {
         <div style={divStyle}>
             <div className="login-card">
               <form className="LoginForm" id="loginForm" onSubmit={this.handleFormSubmit}>
-              <h1>SIGN IN</h1>
+              <h1>LOGIN</h1>
               <p className="login-subtitle">Welcome back! Please enter your details.</p>
                 <div>
                   <input

@@ -1,5 +1,5 @@
 .NavbarItems {
-  background-color: rgb(5,17,23);
+    background-color: #f3f7f6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .NavbarItems img.spacer {
@@ -41,21 +42,21 @@
 }
 
 .welcome-text {
-    color: #fff;
+    color: #274060;
     margin-right: 15px;
     font-size: 1rem;
     font-weight: 600;
 }
 
 .nav-links {
-    color: white;
+    color: #274060;
     text-decoration: none !important;
     padding: 0.5rem 1rem;
     margin: 0 5px;
 }
 
 .nav-links:hover {
-    background-color: #0b0b0c;
+    background-color: #274060;
     border-radius: 4px;
     transition: all 0.2s ease-out;
     text-decoration: none !important;
@@ -63,7 +64,7 @@
 }
 
 .fa-bars {
-    color: #fff;
+    color: #274060;
 }
 
 .nav-links-mobile {
@@ -92,7 +93,7 @@
     }
 
     .nav-menu.active {
-        background: rgb(5,17,23);
+        background: #f3f7f6;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -107,7 +108,7 @@
     }
 
     .nav-links:hover {
-        background-color: #bebecc;
+        background-color: rgba(39,64,96,0.12);
         border-radius: 0;
     }
 
@@ -129,7 +130,7 @@
     }
 
     .fa-times {
-        color: #fff;
+        color: #274060;
         font-size: 2rem;
     }
 
@@ -164,10 +165,20 @@
 /* Fix for Navbar Buttons Text Color */
 .nav-actions .nav-btn,
 .nav-actions a {
-    color: #ffffff;
+    color: #f3f7f6;
     text-decoration: none;
 }
 
 .nav-actions .nav-btn:hover {
-    color: #6568F4;
+    color: #f3f7f6;
+}
+
+.nav-actions .btn--outline {
+    border-color: #274060;
+    background-color: #274060;
+}
+
+.nav-actions .btn--primary {
+    color: #f3f7f6;
+    background-color: #274060;
 }
