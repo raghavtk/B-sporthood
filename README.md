@@ -1,54 +1,32 @@
-# B-sporthood: Web Technologies Project
+# B-Sporthood
 
-## Summary
-This repository contains a website which may be used to book badminton courts in your area. It is a website which is used to gauge the availability of courts depending on demand in a particular area and for a user to look for more courts in their particular area depending on availability and price of the particular court for a specified period of time. It has been a collaborative effort by a team of three people who have collectively worked on the project using the MERN stack for web development.
+This repository contains the B-Sporthood redesign, a polished frontend demonstration for browsing and booking badminton courts in Bengaluru.
 
-The website has been developed using React for the front end and Node, Express and MongoDB for the back end.
+## Start the redesigned app
 
-The repository is now divided into two folders:
-- `b-sporthood/`: The React front-end application.
-- `backend-app/`: The Express/Node.js back-end application.
+```bash
+cd b-sporthood
+npm install
+npm run dev
+```
 
-## Run Instructions (Local Development)
+The Vite development server normally starts at `http://localhost:5173`. Use Node.js 18 or newer.
 
-### Front-End (React)
-The front-end is currently configured to run on **Node 16**.
-1. Navigate to the front-end directory:
-   ```bash
-   cd b-sporthood
-   ```
-2. Ensure you are using Node 16 (if you use nvm):
-   ```bash
-   nvm install 16
-   nvm use 16
-   ```
-3. Install dependencies:
-   ```bash
-   npm install --legacy-peer-deps
-   ```
-4. Start the development server (it will run on http://localhost:3000):
-   ```bash
-   npm start
-   ```
+The app is frontend-only: availability, demo accounts, active sessions, and bookings persist in browser storage. No backend or MongoDB setup is needed.
 
-### Back-End (Node/Express)
-1. Navigate to the back-end directory:
-   ```bash
-   cd backend-app
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the server (it will run on http://localhost:5000):
-   ```bash
-   node server.js
-   ```
+Demo sign-in:
 
-*(Note: The actual MongoDB database connection needs to be configured in `backend-app/server.js` or via environment variables before the backend can fully interact with the database).*
+- Email: `player@bsporthood.demo`
+- Password: `Play123!`
 
-## About
-This is my first project on React and I would like to continuously improve and learn more so anybody looking to work on any projects can feel free to contact me.
+Checkout uses a preconfigured mock payment method—do not enter real payment information. The `backend-app/` directory remains as a legacy reference and is outside the redesigned app’s run path.
 
-Best,
-Raghav
+## Quality checks
+
+```bash
+cd b-sporthood
+npm run lint
+npm run build
+npm test
+npm run test:e2e
+```

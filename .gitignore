@@ -11,6 +11,9 @@ node_modules/
 # build files
 build/
 dist/
+*.tsbuildinfo
+test-results/
+playwright-report/
 
 # misc
 .DS_Store
